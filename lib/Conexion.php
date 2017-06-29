@@ -7,7 +7,7 @@ class Conexion{
     var $dbusr= "root";
     var $dbpwd= "avaras08";
     var $dbhots= "localhost";
-    var $dbname= "simplycolors";
+    var $dbname= "mydb";
     public function  Conectar()
             {
        // $miconn = new myqli("localhost","root","","simplycolors");

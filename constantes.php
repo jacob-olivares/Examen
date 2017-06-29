@@ -1,3 +1,3 @@
 <?php
 define('PATH',$_SERVER["DOCUMENT_ROOT"]."/Examen/");
-session_start();
+define("URL","http://localhost:8081/Examen/");
