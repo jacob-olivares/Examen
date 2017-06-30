@@ -1,7 +1,4 @@
 <?php
-    include '../../librerias.php';
-?>
-<?php
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -40,8 +37,22 @@ class Paciente {
             return false;
         }
         
-        $sql ="INSERT INTO paciente(rut_paciente, nombres, ape_pat, ape_mat, direccion, telefono) VALUES('$this->rut', '$this->nombres', "
-                . "'$this->ape_pat', '$this->ape_mat', '$this->direccion', $this->tel);";
+        $sql ="INSERT INTO paciente(rut_paciente, nombres, ape_pat, ape_mat, sexo,direccion, telefono) VALUES($this->rut, '$this->nombres', "
+                . "'$this->ape_pat', '$this->ape_mat', 'M','$this->direccion', $this->tel);";
         $resultado = $db->query($sql);
     }
+    
+    function eliminarPaciente(){
+        $oConn = new Conexion();
+        if ($oConn->Conectar()) {
+            $db = $oConn->objconn;
+        } else {
+            return false;
+        }
+        
+        $sql="DELETE FROM paciente WHERE rut_paciente=$this->rut";
+        $resultado = $db->query($sql);
+        
+    }
+    
 }

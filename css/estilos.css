@@ -1,2 +1,12 @@
-
+#divVista{
+    width: 180px;
+    height: 20px;
+    float: left;
+}
+#divVista1{
+    width: 180px;
+    height: 20px;
+    float: left;
+    font-weight:bold;
+}
 

@@ -11,6 +11,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <a href="formularios/paciente/agregarPaciente.php">Agregar Paciente</a>
+        <a href="formularios/paciente/agregarPaciente.php">Agregar Paciente</a><br>
+        <a href="formularios/paciente/eliminarPaciente.php">Eliminar Paciente</a>
     </body>
 </html>

@@ -5,12 +5,12 @@
 
 <?php
 
-$rut = $_POST['rut'];
-$nombres = $_POST['nombres'];
-$ape_pat = $_POST['ape_pat'];
-$ape_mat = $_POST['ape_mat'];
-$direccion = $_POST['direccion'];
-$tel = $_POST['tel'];
+$rut = $_REQUEST['rut'];
+$nombres = $_REQUEST['nombres'];
+$ape_pat = $_REQUEST['ape_pat'];
+$ape_mat = $_REQUEST['ape_mat'];
+$direccion = $_REQUEST['direccion'];
+$tel = $_REQUEST['tel'];
 
 $oPac = new Paciente;
 
@@ -22,5 +22,7 @@ $oPac->direccion = $direccion;
 $oPac->tel = $tel;
 
         
-echo "Todo Bien";
+
 $oPac->agregarPaciente();
+echo "Paciente agregado correctamente<br>";
+echo "<a href='../../index.php'>Volver</a>";

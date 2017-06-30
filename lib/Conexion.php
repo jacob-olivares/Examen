@@ -5,7 +5,7 @@ class Conexion{
     /*Metodo de conexion*/
     
     var $dbusr= "root";
-    var $dbpwd= "avaras08";
+    var $dbpwd= "";
     var $dbhots= "localhost";
     var $dbname= "mydb";
     public function  Conectar()
@@ -21,4 +21,8 @@ class Conexion{
         }   
         return true;
     }
+    
 }
+//Para Conexion con Preguntas SQL de listbox Dinamicos
+$con=mysqli_connect("localhost","root","","mydb");
+?>
