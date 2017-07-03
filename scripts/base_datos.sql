@@ -79,8 +79,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Privilegio` (
   `tipoPrivilegio` VARCHAR(45) NULL,
   PRIMARY KEY (`idPrivilegio`))
 ENGINE = InnoDB;
-
-
+INSERT INTO `privilegio` (`idPriviligio`, `tipoPrivilegio`) VALUES
+(1, 'Administrador');
 -- -----------------------------------------------------
 -- Table `mydb`.`Usuario`
 -- -----------------------------------------------------
