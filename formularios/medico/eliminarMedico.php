@@ -11,36 +11,36 @@
     </head>
     <?php if (isset($_SESSION['USR'])) { ?>
     <body>
-        <form action="eliminarPaciente.php" method="POST">
+        <form action="eliminarMedico.php" method="POST">
             Rut: <input id="rut" type="number" name="rut">
                 <input type="submit" value="Buscar">
         </form>
         <?php
             if(!empty($_POST['rut'])){
                 $rut = $_POST['rut'];
-                $sql = "SELECT * FROM paciente WHERE rut_paciente=$rut";
+                $sql = "SELECT * FROM medico WHERE rut_medico=$rut";
                 $resultado = mysqli_query($con,$sql);
         ?>
         <?php
-            echo '<div id="divVista1">' . "Rut Paciente" . '</div>'
+            echo '<div id="divVista1">' . "Rut Medico" . '</div>'
             . '<div id="divVista1">' . "Nombres" . '</div>'
             . '<div id="divVista1">' . "Apellido P" . '</div>'
             . '<div id="divVista1">' . "Apellido M" . '</div>'
-            . '<div id="divVista1">' . "Sexo" . '</div>'
-            . '<div id="divVista1">' . "Direccion" . '</div>'
-            . '<div id="divVista1">' . "Telefono" . '</div><br>';
+            . '<div id="divVista1">' . "Fecha Contratacion" . '</div>'
+            . '<div id="divVista1">' . "Especialidad" . '</div>'
+            . '<div id="divVista1">' . "Valor Consulta" . '</div><br>';
             
-        while ($pacienteList = mysqli_fetch_array($resultado)) {
-            echo '<form action="../../controladores/paciente/eliminar.php" method="POST">'
-            . '<div id="divVista">' . $pacienteList['rut_paciente'] . '</div>'
-            . '<div id="divVista">' . $pacienteList['nombres'] . '</div>'
-            . '<div id="divVista">' . $pacienteList['ape_pat'] . '</div>'
-            . '<div id="divVista">' . $pacienteList['ape_mat'] . '</div>'
-            . '<div id="divVista">' . $pacienteList['sexo'] . '</div>'
-            . '<div id="divVista">' . $pacienteList['direccion'] . '</div>'
-            . '<div id="divVista">' . $pacienteList['telefono'] . '</div>'
-            . '<input type="checkbox" name ="rut" value='.$pacienteList['rut_paciente'].'>'
-            . '<input id="eliminar" type="button" value="Eliminar Paciente"><br>'
+        while ($medicoList = mysqli_fetch_array($resultado)) {
+            echo '<form action="../../controladores/medico/eliminar.php" method="POST">'
+            . '<div id="divVista">' . $medicoList['rut_medico'] . '</div>'
+            . '<div id="divVista">' . $medicoList['nombres'] . '</div>'
+            . '<div id="divVista">' . $medicoList['ape_pat'] . '</div>'
+            . '<div id="divVista">' . $medicoList['ape_mat'] . '</div>'
+            . '<div id="divVista">' . $medicoList['fecha_contratacion'] . '</div>'
+            . '<div id="divVista">' . $medicoList['especialidad'] . '</div>'
+            . '<div id="divVista">' . $medicoList['valor_consulta'] . '</div>'
+            . '<input type="checkbox" name ="rut" value='.$medicoList['rut_medico'].'>'
+            . '<input id="eliminar" type="button" value="Despedir Medico"><br>'
             . '<div id="mensaje"></div>'
             . '</form>';
         }
@@ -51,7 +51,7 @@
     <script>
     $(document).ready(function(){
             $("#eliminar").click(function(){
-                        $.ajax({url:"../../controladores/paciente/eliminar.php"
+                        $.ajax({url:"../../controladores/medico/eliminar.php"
                             ,type:'post'
                             ,data:{'rut':$("#rut").val()
                                 }

@@ -11,9 +11,15 @@
     </head>
     <body>
         <?php if(isset($_SESSION['USR'])) { ?>
-            <a href="formularios/paciente/agregarPaciente.php">Agregar Paciente</a><br>
-            <a href="formularios/paciente/eliminarPaciente.php">Eliminar Paciente</a><br>
-            <a href="lib/CerrarSesion.php">Cerrar Sesion</a>
+        <div align="right"><button><a id="cancelar" href="lib/CerrarSesion.php">Cerrar Sesion</a></button></div>
+        <h1>Pacientes: </h1>
+            <a href="formularios/paciente/agregarPaciente.php">Agregar Pacientes</a><br>
+            <a href="formularios/paciente/eliminarPaciente.php">Eliminar Pacientes</a><br>
+            <a href="formularios/paciente/listarPaciente.php">Listar Pacientes</a><br>
+        <h1>Medicos: </h1>
+            <a href="formularios/medico/agregarMedico.php">Contratar Medico</a><br>
+            <a href="formularios/medico/eliminarMedico.php">Despedir Medicos</a><br>
+            <a href="formularios/medico/listarMedico.php">Listar Medicos</a><br>
         <?php } ?>
             <?php if (!isset($_SESSION['USR'])) { ?>
                 <div id="login">

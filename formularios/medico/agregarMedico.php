@@ -10,21 +10,15 @@
     </head>
     <body>
         <?php if (isset($_SESSION['USR'])) { ?>
-            <form action="../../controladores/paciente/agregar.php" method="POST">
+            <form action="../../controladores/medico/agregar.php" method="POST">
                 <div>Rut: <input id="rut" type="number" name="rut" placeholder="Sin puntos ni guion"></div>
                 <div>Nombres: <input id="nombres" type="text" name="nombres"></div>
                 <div>Apellido Paterno: <input id="ape_pat" type="text" name="ape_pat"></div>
                 <div>Apellido Materno: <input id="ape_mat" type="text" name="ape_mat"></div>
-                <div>Sexo: 
-                    <select name="sexo">
-                        <option value="seleccione">Seleccione</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
-                    </select>
-                </div>
-                <div>Direccion: <input id="direccion" type="text" name="direccion"></div>
-                <div>Telefono: <input id="tel" type="number" name="tel"></div>
-                <input type="button" id="enviar" value="Acceder">
+                <div>Fecha Contratacion: <input id="fecha" type="date" name="fecha"></div>
+                <div>Especialidad: <input id="especialidad" type="text" name="especialidad"></div>
+                <div>Valor Consulta: <input id="valor_consulta" type="number" name="valor_consulta"></div>                
+                <input type="button" id="enviar" value="Enviar">
                 <div id="mensaje"></div>
             </form>
     </body>
@@ -35,16 +29,18 @@
                 alert("Ocultaste el formulario ;-) "+ $("#nomusuario").val());*/
         
                 if ($("#rut").val()!="" && $("#nombres").val()!="" && $("#ape_mat").val()!=""
-                        && $("#ape_pat").val()!="" && $("#direccion").val()!="" && $("#tel").val()!=""){
+                        && $("#ape_pat").val()!="" && $("#fecha").val()!="" && $("#especialidad").val()!=""
+                        && $("#valor_consulta").val()!=""){
                     ///*$("#frmusuario").submit();
-                        $.ajax({url:"../../controladores/paciente/agregar.php"
+                        $.ajax({url:"../../controladores/medico/agregar.php"
                             ,type:'post'
                             ,data:{'rut':$("#rut").val(),
                                 'nombres':$("#nombres").val(),
                                 'ape_pat':$("#ape_pat").val(),
                                 'ape_mat':$("#ape_mat").val(),
-                                'direccion':$("#direccion").val(),
-                                'tel':$("#tel").val()
+                                'fecha':$("#fecha").val(),
+                                'especialidad':$("#especialidad").val(),
+                                'valor_consulta':$("#valor_consulta").val()
                                 }
                             ,success:function(resultado){
                                 $("#mensaje").html(resultado);
@@ -63,3 +59,4 @@ if (!isset($_SESSION['USR'])) {
     header('Location:http://localhost:' . $_SERVER['SERVER_PORT'] . '/Examen/otras/err_IniciarSesion.php');
 }
 ?>
+

@@ -6,11 +6,12 @@
 
 $rut = $_POST['rut'];
 
-$oPac = new Paciente();
+$oMed = new Medico();
 
-$oPac->rut = $rut;
+$oMed->rut = $rut;
 
-$oPac->eliminarPaciente();
-echo "Paciente Eliminado<br>";
+
+$oMed->eliminarMedico();
+echo "Medico Despedido...!!<br>";
 echo "<a href='../../index.php'>Volver</a>";
 
