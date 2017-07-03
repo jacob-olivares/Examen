@@ -98,7 +98,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
+INSERT INTO `usuario` (`idUsuario`, `usuario`, `contrasena`, `idPrivilegio`) VALUES
+(1, 'jacob', '202cb962ac59075b964b07152d234b70', 1);
 -- -----------------------------------------------------
 -- Table `mydb`.`Permiso`
 -- -----------------------------------------------------
