@@ -11,4 +11,5 @@ $oPac = new Paciente();
 $oPac->rut = $rut;
 $oPac->eliminarPaciente();
 
-echo "Paciente Eliminado";
+echo "Paciente Eliminado<br>";
+echo "<a href='../../index.php'>Volver</a>";

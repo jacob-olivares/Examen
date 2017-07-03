@@ -6,11 +6,12 @@
     <head>
         <meta charset="UTF-8">
         <link href="../../css/estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="../../js/jquery-3.2.1.min.js" type="text/javascript"></script>
         <title></title>
     </head>
     <body>
         <form action="eliminarPaciente.php" method="POST">
-                Rut: <input type="number" name="rut">
+            Rut: <input id="rut" type="number" name="rut">
                 <input type="submit" value="Buscar">
         </form>
         <?php
@@ -38,10 +39,26 @@
             . '<div id="divVista">' . $pacienteList['direccion'] . '</div>'
             . '<div id="divVista">' . $pacienteList['telefono'] . '</div>'
             . '<input type="checkbox" name ="rut" value='.$pacienteList['rut_paciente'].'>'
-            . '<input type="submit" value="Eliminar Paciente"><br>'
+            . '<input id="eliminar" type="button" value="Eliminar Paciente"><br>'
+            . '<div id="mensaje"></div>'
             . '</form>';
         }
         ?>
             <?php } ?>
     </body>
+            
+    <script>
+    $(document).ready(function(){
+            $("#eliminar").click(function(){
+                        $.ajax({url:"../../controladores/paciente/eliminar.php"
+                            ,type:'post'
+                            ,data:{'rut':$("#rut").val()
+                                }
+                            ,success:function(resultado){
+                                $("#mensaje").html(resultado);
+                            }
+                        });
+            });//Click Boton enviar
+     });//Function Ready de la página
+     </script>
 </html>

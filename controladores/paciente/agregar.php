@@ -11,6 +11,7 @@ $ape_pat = $_REQUEST['ape_pat'];
 $ape_mat = $_REQUEST['ape_mat'];
 $direccion = $_REQUEST['direccion'];
 $tel = $_REQUEST['tel'];
+$dv = $_REQUEST['dv'];
 
 $oPac = new Paciente;
 
@@ -22,7 +23,10 @@ $oPac->direccion = $direccion;
 $oPac->tel = $tel;
 
         
-
-$oPac->agregarPaciente();
-echo "Paciente agregado correctamente<br>";
-echo "<a href='../../index.php'>Volver</a>";
+if(!$oPac->validarRut($rut)){
+    echo "El rut es incorrecto";
+}else{
+    $oPac->agregarPaciente();
+    echo "Paciente agregado correctamente<br>";
+    echo "<a href='../../index.php'>Volver</a>";
+}
