@@ -12,7 +12,7 @@
     <?php if (isset($_SESSION['USR'])) { ?>
     <body>
         <form action="eliminarMedico.php" method="POST">
-            Rut: <input id="rut" type="number" name="rut">
+            Rut: <input id="rut" type="number" name="rut" placeholder="Sin puntos ni guion">
                 <input type="submit" value="Buscar">
         </form>
         <?php

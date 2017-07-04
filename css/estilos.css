@@ -9,4 +9,19 @@
     float: left;
     font-weight:bold;
 }
+#divVista2{
+    width: 180px;
+    height: 20px;
+    float: left;
+}
+#Lista{
+    background: seagreen;
+    width: 97%;
+    height: 550px;
+    padding: 15px;
+    border:solid 3px black;
+    display:block;
+    position: relative;
+}
+
 

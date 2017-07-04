@@ -10,12 +10,12 @@ if (isset($_SESSION['USR'])) {
     <html>
         <head>
             <meta charset="UTF-8">
-            <link href="../../css/estilos.css" rel="stylesheet" type="text/css"/>
+            <link href="../../css/estilos.css?v=<?php time()?>" rel="stylesheet" type="text/css"/>
             <title>Administracion</title>
         </head>
         <body>
             <div align="right"><button><a id="cancelar" href="../../index.php">Cancelar</a></button></div>
-            <div id="ListarMedicos">
+            <div id="Lista">
                 <h1>Lista de Medicos</h1>
                 <div>
                     <div id="divVista1">RUT</div>

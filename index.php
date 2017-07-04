@@ -20,13 +20,18 @@
             <a href="formularios/medico/agregarMedico.php">Contratar Medico</a><br>
             <a href="formularios/medico/eliminarMedico.php">Despedir Medicos</a><br>
             <a href="formularios/medico/listarMedico.php">Listar Medicos</a><br>
+                    
+        <h1>Usuarios: </h1>
+            <a href="formularios/usuario/agregarUsuario.php">Agregar Usuario</a><br>
+            <a href="formularios/usuario/eliminarUsuario.php">Eliminar Usuarios</a><br>
+            <a href="formularios/usuario/listarUsuario.php">Listar Usuarios</a><br>
         <?php } ?>
             <?php if (!isset($_SESSION['USR'])) { ?>
                 <div id="login">
                     <h1>Sistema de Ingreso: </h1>
                     <form action="lib/Login.php" method="POST">
-                        <div>Usuario: <input type="text" name="user"></div>
-                        <div>Contraseña: <input type="password" name="pass"></div>
+                        <div>Usuario: <input type="text" name="usuario"></div>
+                        <div>Contraseña: <input type="password" name="contrasena"></div>
                         <input type="submit" value="Login">
                     </form>
                 </div>
