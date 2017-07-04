@@ -16,22 +16,23 @@ if (isset($_SESSION['USR'])) {
         <body>
             <div align="right"><button><a id="cancelar" href="../../index.php">Cancelar</a></button></div>
             <div id="Lista">
-                <h1>Lista de Usuarios</h1>
-                <div>
-                    <div id="divVista1">ID USUARIO</div>
-                    <div id="divVista1">USUARIO</div>
-                    <div id="divVista1">TIPO USUARIO</div><br>
-                    <?php
-                    while ($idUsuariolst = mysqli_fetch_array($miqueryUsuario)) {
-                        echo '<div id="divVista">' . $idUsuariolst['idUsuario'] . '</div>'
-                        . '<div id="divVista">' . $idUsuariolst['usuario'] . '</div>'
-                        . '<div id="divVista">' . $idUsuariolst['tipoPrivilegio'] . '</div><br>';
-                    }
-                    ?>
-                </div>
+                    <h1>Lista de Usuarios</h1>
+                    <table border="2px" width="90%"> <!-- Lo cambiaremos por CSS -->
+                        <tr>
+                            <td>ID USUARIO</td>
+                            <td>USUARIO</td>
+                            <td>TIPO USUARIO</td>
+                        </tr>
 
-            </div>
-        </div>        
+                        <?php
+                        while ($idUsuariolst = mysqli_fetch_array($miqueryUsuario)) {
+                            echo '<tr><td>' . $idUsuariolst['idUsuario'] . '</td>'
+                            . '<td>' . $idUsuariolst['usuario'] . '</td>'
+                            . '<td>' . $idUsuariolst['tipoPrivilegio'] . '</td>';
+                        }
+                        ?>
+                    </table>  
+                </div>  
     </body>
     </html>
 <?php } ?>

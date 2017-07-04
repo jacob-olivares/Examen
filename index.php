@@ -25,6 +25,11 @@
             <a href="formularios/usuario/agregarUsuario.php">Agregar Usuario</a><br>
             <a href="formularios/usuario/eliminarUsuario.php">Eliminar Usuarios</a><br>
             <a href="formularios/usuario/listarUsuario.php">Listar Usuarios</a><br>
+            
+        <h1>Consulta: </h1>
+            <a href="formularios/consulta/agendarConsulta.php">Agendar Consulta</a><br>
+            <a href="formularios/consulta/listarConsulta.php">Listar Consultas</a><br>
+            <a href="formularios/usuario/listarUsuario.php">Listar Usuarios</a><br>
         <?php } ?>
             <?php if (!isset($_SESSION['USR'])) { ?>
                 <div id="login">
