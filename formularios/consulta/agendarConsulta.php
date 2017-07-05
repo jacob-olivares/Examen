@@ -54,18 +54,8 @@
                             }
                             ?> 
                     </select>
-                </div>
-                <div>Estado:
-                    <select id="estado" name="estado">
-                        <option value="seleccione">Seleccione</option>
-                        <option value="agendada">Agendada</option>
-                        <option value="confirmada">Confirmada</option>
-                        <option value="anulada">Anulada</option>
-                        <option value="perdida">Perdida</option>
-                        <option value="realizada">Realizada</option>
-                    </select>
-                </div>               
-                <input type="button" id="enviar" value="Enviar">
+                </div>            
+                <input type="button" id="enviar" value="Agendar">
                 <div id="mensaje"></div>
             </form>
     </body>
@@ -75,15 +65,13 @@
                 /*$("form").hide();
                 alert("Ocultaste el formulario ;-) "+ $("#nomusuario").val());*/
         
-                if ($("#fecha").val()!="" && $("#paciente").val()!="0" && $("#medico").val()!="0"
-                        && $("#estado").val()!="seleccione"){
+                if ($("#fecha").val()!="" && $("#paciente").val()!="0" && $("#medico").val()!="0"){
                     ///*$("#frmusuario").submit();
                         $.ajax({url:"../../controladores/consulta/agendar.php"
                             ,type:'post'
                             ,data:{'fecha':$("#fecha").val(),
                                 'paciente':$("#paciente").val(),
-                                'medico':$("#medico").val(),
-                                'estado':$("#estado").val()
+                                'medico':$("#medico").val()
                             }
                             ,success:function(resultado){
                                 $("#mensaje").html(resultado);

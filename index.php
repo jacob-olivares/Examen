@@ -29,20 +29,28 @@
         <h1>Consulta: </h1>
             <a href="formularios/consulta/agendarConsulta.php">Agendar Consulta</a><br>
             <a href="formularios/consulta/listarConsulta.php">Listar Consultas</a><br>
-            <a href="formularios/usuario/listarUsuario.php">Listar Usuarios</a><br>
+            <a href="formularios/consulta/estadoConsulta.php">Modificar Estado de Consulta</a><br>
         <?php } ?>
             <?php if (!isset($_SESSION['USR'])) { ?>
-                <div id="login">
-                    <h1>Sistema de Ingreso: </h1>
-                    <form action="lib/Login.php" method="POST">
-                        <div>Usuario: <input type="text" name="usuario"></div>
-                        <div>Contraseña: <input type="password" name="contrasena"></div>
-                        <input type="submit" value="Login">
-                    </form>
-                </div>
+            <div id="login">
+                </head>
+                <body>
+                    <div>
+                        <img src="img/cruz.png"> 
+                    </div>
+                    <p>HOSPITAL TETENGO </p>      
+                </body> 
+    </html>
+    <form action="lib/Login.php" method="POST">
+        <div id="general"> <h1>Sistema de Ingreso </h1>
+            <input type="text" placeholder="Usuario"  name="usuario">
+            <input type="password" placeholder="Contraseña" name="contrasena">
+            <input type="submit" value="Ingresar">
+            </form>
+        </div>
 
-                <?php
-            }
-            ?>
+        <?php
+    }
+    ?>
     </body>
 </html>

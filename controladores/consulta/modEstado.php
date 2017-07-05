@@ -1,8 +1,18 @@
 <?php
+    include '../../constantes.php';
+    include '../../librerias.php';
+?>
+<?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+$estado = $_POST['estado'];
+$idConsulta = $_POST['idConsulta'];
+
+$oCons = new Consulta();
+
+$oCons->estado = $estado;
+$oCons->idConsulta = $idConsulta;
+
+$oCons->modificarConsulta();
+echo "Consulta modificada...!!<br>";
+echo "<a href='../../index.php'>Volver</a>";
 

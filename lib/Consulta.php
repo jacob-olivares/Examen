@@ -12,6 +12,7 @@
  * @author jhaco
  */
 class Consulta {
+    var $idConsulta;
     var $fecha;
     var $paciente;
     var $medico;
@@ -33,7 +34,19 @@ class Consulta {
         }
 
         $sql = "INSERT INTO consulta(fecha_atencion, rut_paciente, rut_medico, estado) VALUES('$this->fecha'"
-                . ", $this->paciente, $this->medico, '$this->estado');";
+                . ", $this->paciente, $this->medico, 'Agendada');";
+        $resultado = $db->query($sql);
+    }
+    
+    function modificarConsulta(){   
+        $oConn = new Conexion();
+        if ($oConn->Conectar()) {
+            $db = $oConn->objconn;
+        } else {
+            return false;
+        }
+        
+        $sql = "UPDATE consulta SET estado = '$this->estado' WHERE idConsulta=$this->idConsulta;";
         $resultado = $db->query($sql);
     }
 }
