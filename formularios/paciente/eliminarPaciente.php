@@ -1,6 +1,11 @@
 <?php
     include_once '../../constantes.php';
     include_once '../../librerias.php';
+        
+    $objses = new Sesion();
+    $objses->init();
+
+    $user = isset($_SESSION['idprivilegio']) ? $_SESSION['idprivilegio'] : null ;
 ?>
 <html>
     <head>
@@ -9,7 +14,7 @@
         <script src="../../js/jquery-3.2.1.min.js" type="text/javascript"></script>
         <title></title>
     </head>
-    <?php if (isset($_SESSION['USR'])) { ?>
+    <?php if ($user == 1) { ?>
     <body>
         <form action="eliminarPaciente.php" method="POST">
             Rut: <input id="rut" type="number" name="rut">
@@ -65,7 +70,7 @@
 </html>
 <?php } ?>
 <?php
-if (!isset($_SESSION['USR'])) {
+if (!$user) {
     header('Location:http://localhost:' . $_SERVER['SERVER_PORT'] . '/Examen/otras/err_IniciarSesion.php');
 }
 ?>

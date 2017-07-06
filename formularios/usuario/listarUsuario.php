@@ -1,7 +1,10 @@
 <?php
-include '../../constantes.php';
-include '../../librerias.php';
-if (isset($_SESSION['USR'])) {
+    include '../../constantes.php';
+    include '../../librerias.php';
+    $objses = new Sesion();
+    $objses->init();
+
+    $user = isset($_SESSION['idprivilegio']) ? $_SESSION['idprivilegio'] : null ;
     //QUERY Usuarios
     $sqlUsuario = "SELECT idUsuario, usuario, privilegio.tipoPrivilegio FROM usuario JOIN privilegio"
             . " ON privilegio.idPrivilegio = usuario.idPrivilegio; ";
@@ -14,6 +17,7 @@ if (isset($_SESSION['USR'])) {
             <title>Administracion</title>
         </head>
         <body>
+            <?php if ($user == 1) { ?>
             <div align="right"><button><a id="cancelar" href="../../index.php">Cancelar</a></button></div>
             <div id="Lista">
                     <h1>Lista de Usuarios</h1>
@@ -36,9 +40,8 @@ if (isset($_SESSION['USR'])) {
     </body>
     </html>
 <?php } ?>
-
 <?php
-if (!isset($_SESSION['USR'])) {
+if (!$user) {
     header('Location:http://localhost:' . $_SERVER['SERVER_PORT'] . '/Examen/otras/err_IniciarSesion.php');
 }
 ?>

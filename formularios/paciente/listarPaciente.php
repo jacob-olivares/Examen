@@ -1,7 +1,10 @@
 <?php
-include '../../constantes.php';
-include '../../librerias.php';
-if (isset($_SESSION['USR'])) {
+    include '../../constantes.php';
+    include '../../librerias.php';
+    $objses = new Sesion();
+    $objses->init();
+
+    $user = isset($_SESSION['idprivilegio']) ? $_SESSION['idprivilegio'] : null ;
     //QUERY Pacientes
     $sqlPaciente = "SELECT rut_paciente, nombres, ape_pat, ape_mat, sexo, direccion, telefono FROM paciente ";
     $miqueryPaciente = mysqli_query($con, $sqlPaciente);
@@ -13,6 +16,7 @@ if (isset($_SESSION['USR'])) {
             <title>Administracion</title>
         </head>
         <body>
+            <?php if ($user == 1 || $user == 2 || $user == 3) { ?>
             <div align="right"><button><a id="cancelar" href="../../index.php">Cancelar</a></button></div>
             <div id="Lista">
                 <h1>Lista de Pacientes</h1>
@@ -42,9 +46,8 @@ if (isset($_SESSION['USR'])) {
     </body>
     </html>
 <?php } ?>
-
 <?php
-if (!isset($_SESSION['USR'])) {
+if (!$user) {
     header('Location:http://localhost:' . $_SERVER['SERVER_PORT'] . '/Examen/otras/err_IniciarSesion.php');
 }
 ?>

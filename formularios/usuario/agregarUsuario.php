@@ -1,6 +1,10 @@
 <?php
     include_once '../../constantes.php';
     include_once '../../librerias.php';       
+    $objses = new Sesion();
+    $objses->init();
+
+    $user = isset($_SESSION['idprivilegio']) ? $_SESSION['idprivilegio'] : null ;
 //QUERY Privilegios
     $sql="SELECT idPrivilegio, tipoPrivilegio FROM privilegio;";
     $query=mysqli_query($con,$sql);
@@ -12,7 +16,7 @@
         <title></title>
     </head>
     <body>
-        <?php if (isset($_SESSION['USR'])) { ?>
+        <?php if ($user == 1) { ?>
             <form action="../../controladores/usuario/agregar.php" method="POST">
                 <div>Usuario: <input id="usuario" type="text" name="usuario"></div>
                 <div>Contraseña: <input id="contrasena" type="password" name="contrasena"></div>
@@ -64,7 +68,7 @@
 </html> 
 <?php } ?>
 <?php
-if (!isset($_SESSION['USR'])) {
+if (!$user) {
     header('Location:http://localhost:' . $_SERVER['SERVER_PORT'] . '/Examen/otras/err_IniciarSesion.php');
 }
 ?>

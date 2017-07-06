@@ -1,6 +1,13 @@
 <?php
     include_once '../../constantes.php';
     include_once '../../librerias.php'; 
+        
+    $objses = new Sesion();
+    $objses->init();
+
+    $user = isset($_SESSION['idprivilegio']) ? $_SESSION['idprivilegio'] : null ;
+    
+    
 //QUERY Medicos
     $sqlMedico = "SELECT rut_medico, nombres, ape_pat, ape_mat, especialidad FROM medico ";
     $miqueryMedico = mysqli_query($con, $sqlMedico);
@@ -17,7 +24,7 @@
         <title></title>
     </head>
     <body>
-        <?php if (isset($_SESSION['USR'])) { ?>
+        <?php if ($user ==3) { ?>
             <form action="../../controladores/consulta/agendar.php" method="POST">
                 <div>Fecha Atencion: <input id="fecha" type="datetime-local" name="fecha"></div>
                 <div>Paciente:
@@ -82,11 +89,11 @@
                     alert("Todos los campos deben llenarse");
             });//Click Boton enviar
      });//Function Ready de la página
-     </script>
+     </script>  
 </html> 
 <?php } ?>
 <?php
-if (!isset($_SESSION['USR'])) {
+if (!$user) {
     header('Location:http://localhost:' . $_SERVER['SERVER_PORT'] . '/Examen/otras/err_IniciarSesion.php');
 }
 ?>

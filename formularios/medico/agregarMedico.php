@@ -1,6 +1,11 @@
 <?php
     include_once '../../constantes.php';
     include_once '../../librerias.php';
+        
+    $objses = new Sesion();
+    $objses->init();
+
+    $user = isset($_SESSION['idprivilegio']) ? $_SESSION['idprivilegio'] : null ;
 ?>
 <html>
     <head>
@@ -9,7 +14,7 @@
         <title></title>
     </head>
     <body>
-        <?php if (isset($_SESSION['USR'])) { ?>
+        <?php if ($user == 1) { ?>
             <form action="../../controladores/medico/agregar.php" method="POST">
                 <div>Rut: <input id="rut" type="number" name="rut" placeholder="Sin puntos ni guion"></div>
                 <div>Nombres: <input id="nombres" type="text" name="nombres"></div>
@@ -55,7 +60,7 @@
 </html> 
 <?php } ?>
 <?php
-if (!isset($_SESSION['USR'])) {
+if (!$user) {
     header('Location:http://localhost:' . $_SERVER['SERVER_PORT'] . '/Examen/otras/err_IniciarSesion.php');
 }
 ?>

@@ -5,6 +5,7 @@
         <title></title>
     </head>
     <body>
-        <h1>Error al ingresar al sitio, primero debe <a href="../index.php">iniciar sesion</a></h1>
+        <h1>No posees los suficientes permisos<br> 
+            <a href="../index.php">Volver</a></h1>
     </body>
 </html>
