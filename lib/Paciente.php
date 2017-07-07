@@ -38,7 +38,7 @@ class Paciente {
         }
         
         $sql ="INSERT INTO paciente(rut_paciente, nombres, ape_pat, ape_mat, sexo,direccion, telefono) VALUES($this->rut, '$this->nombres', "
-                . "'$this->ape_pat', '$this->ape_mat', 'M','$this->direccion', $this->tel);";
+                . "'$this->ape_pat', '$this->ape_mat', '$this->sexo','$this->direccion', $this->tel);";
         $resultado = $db->query($sql);
     }
     
@@ -50,7 +50,7 @@ class Paciente {
             return false;
         }
         
-        $sql="DELETE FROM paciente WHERE rut_paciente=$this->rut";
+        $sql="DELETE FROM paciente WHERE rut_paciente=$this->rut;";
         $resultado = $db->query($sql);
         
     }

@@ -33,9 +33,11 @@ class Consulta {
             return false;
         }
 
-        $sql = "INSERT INTO consulta(fecha_atencion, rut_paciente, rut_medico, estado) VALUES('$this->fecha'"
-                . ", $this->paciente, $this->medico, 'Agendada');";
+        $sql = "INSERT INTO consulta(fecha_atencion, estado) VALUES('$this->fecha','Agendada');";
         $resultado = $db->query($sql);
+        $id = mysqli_insert_id($db); 
+        $db->query("INSERT INTO PACIENTE_has_Consulta(Paciente_rut_paciente, Consulta_idConsulta) VALUES($this->paciente, $id);");
+        $db->query("INSERT INTO MEDICO_has_Consulta(Medico_rut_medico, Consulta_idConsulta) VALUES($this->medico, $id);");
     }
     
     function modificarConsulta(){   

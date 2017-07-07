@@ -57,8 +57,8 @@
             <?php } ?>
         </div>
     </body>
+    <?php } ?>
 </html>
-<?php } ?>
 <?php
 if (!$user) {
     header('Location:http://localhost:' . $_SERVER['SERVER_PORT'] . '/Examen/otras/err_IniciarSesion.php');

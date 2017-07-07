@@ -25,7 +25,9 @@
         <?php
             if(!empty($_POST['rut'])){
                 $rut = $_POST['rut'];
-                $sql = "SELECT * FROM consulta WHERE rut_paciente=$rut";
+                $sql = "SELECT c.idConsulta, c.fecha_atencion, p.Paciente_rut_paciente, m.Medico_rut_medico, c.estado FROM consulta c"
+                . " INNER JOIN paciente_has_consulta p ON (p.Consulta_idConsulta = c.idConsulta)"
+                . " INNER JOIN medico_has_consulta m ON (m.Consulta_idConsulta = c.idConsulta) WHERE Paciente_rut_paciente = $rut;";
                 $resultado = mysqli_query($con,$sql);
         ?>
         <table border="2px" width="90%"> <!-- Lo cambiaremos por CSS -->
@@ -40,7 +42,9 @@
 
                     <?php
                      //QUERY Consulta
-                    $sqlConsulta = "SELECT * FROM consulta WHERE rut_paciente = '$rut';";
+                    $sqlConsulta = "SELECT c.idConsulta, c.fecha_atencion, p.Paciente_rut_paciente, m.Medico_rut_medico, c.estado FROM consulta c"
+                        . " INNER JOIN paciente_has_consulta p ON (p.Consulta_idConsulta = c.idConsulta)"
+                        . " INNER JOIN medico_has_consulta m ON (m.Consulta_idConsulta = c.idConsulta) WHERE Paciente_rut_paciente = $rut;";
                     $miqueryConsulta = mysqli_query($con, $sqlConsulta);
                     $i =0;
                     while ($idConsultalst = mysqli_fetch_array($miqueryConsulta)) {
@@ -49,8 +53,8 @@
                         '<tr>'
                         . '<td>'. $idConsultalst['idConsulta'] . '</td>'
                         . '<td>' . $idConsultalst['fecha_atencion'] . '</td>'
-                        . '<td>' . $idConsultalst['rut_paciente'] . '</td>'
-                        . '<td>' . $idConsultalst['rut_medico'] . '</td>'
+                        . '<td>' . $idConsultalst['Paciente_rut_paciente'] . '</td>'
+                        . '<td>' . $idConsultalst['Medico_rut_medico'] . '</td>'
                         .'<form action="../../controladores/consulta/modEstado.php" method="POST">'
                         . '<td>'
                         . '<select id="estado" name="estado">'
@@ -60,7 +64,7 @@
                             . '<option value="Realizada">Realizada</option>'
                         . '</select>'
                         . '</td>'
-                        . '<input type="number" class="idConsulta" id="idConsulta" name ="idConsulta" value='.$idConsultalst['idConsulta'].'>'
+                        . '<input type="hidden" class="idConsulta" id="idConsulta" name ="idConsulta" value='.$idConsultalst['idConsulta'].'>'
                         . '<td><input id="modificar" type="button" value="Modificar Consulta"><td>'
                         . '</tr></form>';
                         } ?>

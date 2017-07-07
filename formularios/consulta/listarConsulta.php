@@ -7,7 +7,9 @@
     $user = isset($_SESSION['idprivilegio']) ? $_SESSION['idprivilegio'] : null ;
     
     //QUERY Consulta
-    $sqlConsulta = "SELECT idConsulta, fecha_atencion, rut_paciente, rut_medico, estado FROM consulta;";
+    $sqlConsulta = "SELECT c.idConsulta, c.fecha_atencion, p.Paciente_rut_paciente, m.Medico_rut_medico, c.estado FROM consulta c"
+            . " INNER JOIN paciente_has_consulta p ON (p.Consulta_idConsulta = c.idConsulta)"
+            . " INNER JOIN medico_has_consulta m ON (m.Consulta_idConsulta = c.idConsulta);";
     $miqueryConsulta = mysqli_query($con, $sqlConsulta);
     ?>
     <html>
@@ -34,8 +36,8 @@
                             while ($idConsultalst = mysqli_fetch_array($miqueryConsulta)) {
                                 echo '<tr><td>' . $idConsultalst['idConsulta'] . '</td>'
                                 . '<td>' . $idConsultalst['fecha_atencion'] . '</td>'
-                                . '<td>' . $idConsultalst['rut_paciente'] . '</td>'
-                                . '<td>' . $idConsultalst['rut_medico'] . '</td>'
+                                . '<td>' . $idConsultalst['Paciente_rut_paciente'] . '</td>'
+                                . '<td>' . $idConsultalst['Medico_rut_medico'] . '</td>'
                                 . '<td>' . $idConsultalst['estado'] . '</td></tr>';
                             }
                             ?>

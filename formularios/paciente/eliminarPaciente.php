@@ -17,13 +17,13 @@
     <?php if ($user == 1) { ?>
     <body>
         <form action="eliminarPaciente.php" method="POST">
-            Rut: <input id="rut" type="number" name="rut">
+            Rut: <input id="rut1" type="number" name="rut1">
                 <input type="submit" value="Buscar">
         </form>
         <?php
-            if(!empty($_POST['rut'])){
-                $rut = $_POST['rut'];
-                $sql = "SELECT * FROM paciente WHERE rut_paciente=$rut";
+            if(!empty($_POST['rut1'])){
+                $rut = $_POST['rut1'];
+                $sql = "SELECT * FROM paciente WHERE rut_paciente=$rut;";
                 $resultado = mysqli_query($con,$sql);
         ?>
         <?php
@@ -44,7 +44,7 @@
             . '<div id="divVista">' . $pacienteList['sexo'] . '</div>'
             . '<div id="divVista">' . $pacienteList['direccion'] . '</div>'
             . '<div id="divVista">' . $pacienteList['telefono'] . '</div>'
-            . '<input type="checkbox" name ="rut" value='.$pacienteList['rut_paciente'].'>'
+            . '<input type="hidden" id="rut" name="rut" value='.$pacienteList['rut_paciente'].'>'
             . '<input id="eliminar" type="button" value="Eliminar Paciente"><br>'
             . '<div id="mensaje"></div>'
             . '</form>';

@@ -21,11 +21,13 @@
     <head>
         <meta charset="UTF-8">
         <script src="../../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <link href="../../css/estilos.css?v=<?= time()?>" rel="stylesheet" type="text/css"/>
         <title></title>
     </head>
     <body>
         <?php if ($user ==3) { ?>
             <form action="../../controladores/consulta/agendar.php" method="POST">
+                <div id="ac">
                 <div>Fecha Atencion: <input id="fecha" type="datetime-local" name="fecha"></div>
                 <div>Paciente:
                         <select id="paciente" name="paciente">
@@ -64,6 +66,7 @@
                 </div>            
                 <input type="button" id="enviar" value="Agendar">
                 <div id="mensaje"></div>
+                </div>
             </form>
     </body>
     <script>

@@ -51,7 +51,7 @@ class Medico {
             return false;
         }
 
-        $sql = "DELETE FROM medico WHERE rut_medico = '$this->rut'";
+        $sql = "DELETE FROM medico WHERE rut_medico=$this->rut;";
         $resultado = $db->query($sql);
     }
     

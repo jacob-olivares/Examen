@@ -68,6 +68,7 @@ h1{
     text-align: center; 
     margin-bottom: 20px;
     color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
    }
    
    input{
@@ -90,30 +91,124 @@ h1{
    input[type="submit"]:hover{
        opacity: 2;  
    }
-  
-
-   a{
-       text-decoration: none;
-       display: block;
-       border: 7px solid #00ccff;
-       width: 250px;
-       height: 40px;
-       text-align: center;
-       padding-top: 18px;
+   
+   *{
+       padding: 0px;
+       margin: opx;
+   }
+   
+   #menu{
        margin: auto;
-       background-color: #ffffff;
-       color:  blue;
-       font-size: 25px;
-       box-shadow: 1px 1px 10px #ff9966;   
-       
-       transition: 0s;
-       -webkit-transition: 1s;
-       -o-transition: 1s;
-       -moz-transition: 1s;
-       -ms-trasition: 1s;
+       width: 500px;
+       font-family: Arial, Helvetica, sans-serif;   
    }
-   a:hover{
-       background-color:  #00ccff;
-       width: 300px;
+ 
+   ul, ol{
+       list-style: none;
+   }
+   
+   .nav li a{
+       background-color: #00ccff;
+       color: #ffffff;
+       text-decoration: none;
+       padding: 10px 10px;
+       display: block;
+   }
+   
+   .nav li a:hover{
+       background-color: #00cccc;
+   }
+   
+   .nav > li{
+       float: left;
+   }
+   
+   .nav li ul{
+       display: none;
+       position: absolute;
+       min-width: 200px;
+   }
+   
+   .nav li:hover > ul{
+       display: block;
+   }
+   
+   a[id="cancelar"]{
+       font: bold 25px Arial;
+       text-decoration: none;
+       color: #fff;
+       background:#31384a;
+       transition:background 2s,color 1s;  
+   }
+    div[id="ap"]{
+    width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+   }
+   
+   input[type="button"]{
+       background: #31384a;
+       color: #fff;
+       padding: 10px;
+   }
+   input[type="button"]:hover{
+       cursor: pointer;
        
    }
+   
+   div[id="ep"]{
+    width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+   }
+   
+   input[type="submit"]{
+       background: #31384a;
+       color: #fff;
+       padding: 10px;
+   }
+   
+    div[id="AM"]{
+    width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+   }
+   
+   div[id="el"]{
+    width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+   }
+   
+   div[id="au"]{
+    width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+   }
+   
+   div[id="eu"]{
+    width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+   }
+   
+   div[id="ac"]{
+    width: 400px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+   }
+   
+   
+   
+   
+   
+   
+   
+       

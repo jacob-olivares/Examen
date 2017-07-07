@@ -23,10 +23,10 @@
                 <div>Apellido Paterno: <input id="ape_pat" type="text" name="ape_pat"></div>
                 <div>Apellido Materno: <input id="ape_mat" type="text" name="ape_mat"></div>
                 <div>Sexo: 
-                    <select name="sexo">
+                    <select id="sexo" name="sexo">
                         <option value="seleccione">Seleccione</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
                     </select>
                 </div>
                 <div>Direccion: <input id="direccion" type="text" name="direccion"></div>
@@ -51,6 +51,7 @@
                                 'ape_pat':$("#ape_pat").val(),
                                 'ape_mat':$("#ape_mat").val(),
                                 'direccion':$("#direccion").val(),
+                                'sexo':$("#sexo").val(),
                                 'tel':$("#tel").val()
                                 }
                             ,success:function(resultado){
