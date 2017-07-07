@@ -19,17 +19,16 @@
         <?php if($user) { ?>
         <div align="right"><button><a id="cancelar" href="lib/CerrarSesion.php">Cerrar Sesion</a></button></div>
         <div id="menu">
-            <ul class="nav">
         <h1>Pacientes: </h1>
         <?php if($user==1) { ?>
-             <li><a href="formularios/paciente/agregarPaciente.php">Agregar Pacientes</a></li>
-             <li><a href="formularios/paciente/eliminarPaciente.php">Eliminar Pacientes</a></li>
+             <a href="formularios/paciente/agregarPaciente.php">Agregar Pacientes</a>
+             <a href="formularios/paciente/eliminarPaciente.php">Eliminar Pacientes</a>
         <?php } ?>
         <?php if($user==3 || $user==1 || $user==2) { ?>
-            <li><a href="formularios/paciente/listarPaciente.php">Listar Pacientes</a></li>
-            <li><a href="formularios/paciente/consultarPaciente.php">Consultar Paciente</a><br>
+            <a href="formularios/paciente/listarPaciente.php">Listar Pacientes</a>
+            <a href="formularios/paciente/consultarPaciente.php">Consultar Paciente</a><br>
         <?php } ?>
-            </ul>
+            
         <h1>Medicos: </h1>
         <?php if($user==1) { ?>
             <a href="formularios/medico/agregarMedico.php">Contratar Medico</a><br>
